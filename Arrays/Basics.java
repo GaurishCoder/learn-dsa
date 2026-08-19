@@ -1,5 +1,17 @@
 public class Basics {
 
+    public static void reverseArray(int[] arr) {
+        int left = 0 , right = arr.length - 1;
+        while (left<right) {
+            int temp = arr[left];
+            arr[left] = arr[right];
+            arr[right] = temp;
+            left++;
+            right--;
+        }
+        printArray(arr);
+    }
+
     public static void findMinMax(int[] arr) {
         int max = arr[0], min = arr[0];
         for (int i = 1; i < arr.length; i++) {
@@ -47,13 +59,13 @@ public class Basics {
     }
 
     public static void main(String[] args) {
-        int arr[] = { 1, 2, 10, 2, 2, 1 };
+        int arr[] = { 1,2,3,4,5 };
 
         System.out.println("Original Array:");
         printArray(arr);
 
-        System.out.println("\nFrequency of each element in array:");
-        frequencyOfEachElement(arr);
+        System.out.println("\nReverse Array:");
+        reverseArray(arr);
 
     }
 }
