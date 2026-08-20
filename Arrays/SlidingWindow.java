@@ -48,9 +48,9 @@ public class SlidingWindow {
 
     public static void countNegativeElemEachWindow(int[] arr, int k) {
 
-        int count=0;
+        int count = 0;
         for (int i = 0; i < k; i++) {
-            if (arr[i]<0) {
+            if (arr[i] < 0) {
                 count++;
             }
         }
@@ -59,10 +59,10 @@ public class SlidingWindow {
         ArrayList<Integer> ans = new ArrayList<>();
         ans.add(count);
         while (right <= n) {
-            if (arr[left]<0) {
+            if (arr[left] < 0) {
                 count--;
             }
-            if (arr[right]<0) {
+            if (arr[right] < 0) {
                 count++;
             }
             left++;
