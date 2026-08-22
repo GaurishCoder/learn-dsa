@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 
 public class MixedQuestion {
     public static void maxSumSubarray(int[] arr, int k) {
@@ -46,9 +47,70 @@ public class MixedQuestion {
         System.out.println(pairs);
     }
 
+    public static int[] calculatePrefixSum(int[] arr) {
+        int prefix[] = new int[arr.length];
+        prefix[0] = arr[0];
+        for (int i = 1; i < arr.length; i++) {
+            prefix[i] = arr[i] + prefix[i - 1];
+        }
+        return prefix;
+    }
+
+
+     public int longestConsecutive(int[] nums) {
+
+        HashSet<Integer> set = new HashSet<>();
+
+        for (int num : nums) {
+            set.add(num);
+        }
+
+        int maxLength = 0;
+
+        for (int current : set) {
+
+            // Start of a sequence
+            if (!set.contains(current - 1)) {
+
+                int length = 1;
+
+                while (set.contains(current + 1)) {
+                    current++;
+                    length++;
+                }
+
+                maxLength = Math.max(maxLength, length);
+            }
+        }
+
+        return maxLength;
+    }
+
     public static int countSubarrays(int[] arr, int target) {
-        
-        return 0;
+
+        int currentPrefix[] = calculatePrefixSum(arr);
+
+        HashMap<Integer, Integer> map = new HashMap<>();
+
+        int count = 0;
+
+        map.put(0, 1);
+
+        for (int i = 0; i < currentPrefix.length; i++) {
+
+            int need = currentPrefix[i] - target;
+
+            if (map.containsKey(need)) {
+                count += map.get(need);
+            }
+
+            map.put(
+                    currentPrefix[i],
+                    map.getOrDefault(currentPrefix[i], 0) + 1
+                );
+        }
+
+        return count;
     }
 
     public static void printArray(int[] arr) {
