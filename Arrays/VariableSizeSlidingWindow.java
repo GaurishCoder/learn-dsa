@@ -1,3 +1,5 @@
+import java.util.HashMap;
+
 public class VariableSizeSlidingWindow {
     public static int findLongestSubarrySum(int[] arr, int k) {
         int sum = 0;
@@ -38,6 +40,25 @@ public class VariableSizeSlidingWindow {
         return minLen;
     }
 
+    public static int findLongestAtmostKdistinct(int[] arr, int k) {
+        int maxLen = 0;
+        int left = 0;
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for (int right = 0; right < arr.length; right++) {
+            map.put(arr[right], map.getOrDefault(arr[right], 0) + 1);
+            while (map.size() > k) {
+                int value = arr[left];
+                map.put(value, map.get(value) - 1);
+                if (map.get(value) == 0) {
+                    map.remove(value);
+                }
+                left++;
+            }
+            maxLen = Math.max(maxLen, right - left + 1);
+        }
+        return maxLen;
+    }
+
     public static void printArray(int[] arr) {
         for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i] + " ");
@@ -46,12 +67,12 @@ public class VariableSizeSlidingWindow {
     }
 
     public static void main(String[] args) {
-        int arr[] = { 2, 3, 1, 2, 4, 3 };
+        int arr[] = { 1, 2, 1, 3, 4, 3 };
 
         System.out.println("Original Array:");
         printArray(arr);
 
-        System.out.println("Shortest Subarry sum that is equal to k is " + findShortestSubarrySum(arr, 7));
+        System.out.println("Longest Atmost K Distinct Element is " + findLongestAtmostKdistinct(arr, 2));
 
     }
 }
