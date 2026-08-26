@@ -6,25 +6,12 @@ package Strings.TwoPointer;
 public class RemoveSpacesCase {
     public static void checkValidPalindromeAfterSpaceCasePunctuation(String s) {
         int left = 0, right = s.length() - 1;
-        
-
-       
 
         boolean ans = true;
 
         while (left < right) {
             char charLeft = s.charAt(left);
             char charRight = s.charAt(right);
-
-            if (!Character.isLetter(charLeft)) {
-                left++;
-            }else if (!Character.isLetter(charRight)) {
-                right--;
-            }else{
-                //swap
-                left++;
-                right--;
-            }
 
             if (!Character.isLetterOrDigit(charLeft)) {
                 left++;
