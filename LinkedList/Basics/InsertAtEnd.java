@@ -12,6 +12,12 @@ public class InsertAtEnd {
 
     public static void insertAtEnd(Node head) {
         Node newNode = new Node(50);
+
+        if (head==null) {
+            head = newNode;
+            return;
+        }
+
         Node temp = head;
         while (temp.next != null) {
             temp = temp.next;
@@ -36,7 +42,7 @@ public class InsertAtEnd {
         head.next = b;
         b.next = c;
 
-        insertAtEnd(head);
+        insertAtEnd(null);
         displayList(head);
     }
 }
