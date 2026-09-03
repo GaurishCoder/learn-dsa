@@ -28,7 +28,7 @@ public class MergeList {
         Node p2 = list2;
 
         while (p1 != null && p2 != null) {
-            if (list1.data < list2.data) {
+            if (p1.data < p2.data) {
                 tail.next = p1;
                 p1 = p1.next;
             } else {
