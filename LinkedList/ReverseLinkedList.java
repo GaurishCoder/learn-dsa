@@ -1,4 +1,4 @@
-package LinkedList.SlowFastPointer;
+package LinkedList;
 
 public class ReverseLinkedList {
     public static class Node {
