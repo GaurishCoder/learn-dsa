@@ -48,9 +48,6 @@ public class StackLinkedList {
         push(10);
         push(20);
         push(30);
-
-        display();
-
         System.out.println(isEmpty());
     }
 }
