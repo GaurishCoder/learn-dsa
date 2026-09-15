@@ -9,6 +9,12 @@ public class QueueCollectionFramework {
         q.add(1);
         q.add(2);
         q.add(3);
+
+        //ArrayDeque method
+        aq.offer(10);
+        aq.poll(); // retrieve and remove head of the queue
+        aq.peek();
+
         System.out.println(q);
     }
 }
