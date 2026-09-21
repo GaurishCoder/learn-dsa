@@ -1,6 +1,13 @@
 package BinarySearchTree;
 
 public class BuildBST {
+
+    /*
+    In BST root element is greater then left and lesser then right 
+
+    Eg: root : 2, left: 1,right: 3 
+    */
+
     static class Node {
         int data;
         Node left;
