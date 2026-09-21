@@ -34,7 +34,7 @@ public class SearchKey {
         inorder(root.right);
     }
 
-    public static boolean findKey(Node root, int key) {
+    public static boolean findKey(Node root, int key) { // TC:O(H) - in wrost case in key is present still leaf node  , H is height of tree 
         if (root == null) {
             return false;
         }
