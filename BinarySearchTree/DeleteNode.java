@@ -1,5 +1,3 @@
-package BinarySearchTree;
-
 public class DeleteNode {
     static class Node {
         int data;
