@@ -1,0 +1,2 @@
+Started the graph data structure 
+understand the use of the graph
