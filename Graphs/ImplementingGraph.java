@@ -20,6 +20,7 @@ public class ImplementingGraph {
         // Array of ArrayList contain edge
         ArrayList<Edge>[] graph = new ArrayList[V];// null -> empty arraylist
 
+        // here we initailized the array position with arraylist  
         for (int i = 0; i < V; i++) {
             graph[i] = new ArrayList<>();
         }
